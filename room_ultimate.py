@@ -162,7 +162,6 @@ def habitacion():
     print("3. mirar la pared")
     print("4. cadaver")
     print("5. Intentar abrir la puerta")
-    print("0")
     print("6. Ver inventario")
     
 
@@ -181,8 +180,6 @@ def habitacion():
     elif opcion == "6":
         print("Inventario:", inventario)
         habitacion()
-    elif opcion == "0":
-        final()
     else:
         print("Opción inválida.")
         habitacion()
