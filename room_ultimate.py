@@ -5,8 +5,11 @@ import random
 vidas = 3
 pistas = 2
 def mostrar_estado():
-    print(f"❤️  Vidas: {vidas}   💡 Pistas: {pistas}")
-    menu_principal()
+    print(f"❤️  Vidas: {vidas}")
+    habitacion()
+def mostrar_pistas():
+    print(f"  💡 Pistas: {pistas}")
+    menu_principal()  
 def menu_principal():
     print("\n MENU PRINCIPAL")
     print("1: nueva partida")
@@ -43,18 +46,21 @@ def usar_pista():
     pista=input("ingresa que necesitas saber:\n 1: caja 1 \n 2: caja 2 \n 3: triqui \n 4: pregunta final \n elige:" )
     if pista == "1":
         print("es un numero de un digito")
-        mostrar_estado()
+        mostrar_pistas()
         
     elif pista == "2":
         print("entre amor, dinero y familia, piensa cuál de esas suele representarse como el vínculo o legado en historias de este tipo")    
-        mostrar_estado()
+        mostrar_pistas()
 
     elif pista == "3":
         print("tu enemigo actua de manera aleatoria no esperes que trate de cortarte intencionadamente")
+        mostrar_pistas()
     elif pista == "4":
         print("Actualmente estamos condicionados por el entorno")
+        mostrar_pistas()
+        
     else: 
-        print("respuesta invalida")       
+        menu_principal()     
 
 
 def perder_vida():
@@ -162,6 +168,7 @@ def habitacion():
     print("3. mirar la pared")
     print("4. cadaver")
     print("5. Intentar abrir la puerta")
+    print("0")
     print("6. Ver inventario")
     
 
@@ -180,6 +187,8 @@ def habitacion():
     elif opcion == "6":
         print("Inventario:", inventario)
         habitacion()
+    elif opcion == "0":
+        final()
     else:
         print("Opción inválida.")
         habitacion()
@@ -413,13 +422,15 @@ def puerta():
             pausa()
             print("🎉 ¡Has escapado del cuarto!")
             final()
-            
         else:
             print("Código incorrecto.")
             habitacion()
     else:
         print("No sabes el código.")
         
+    habitacion()
+    
+menu_principal()
     habitacion()
     
 menu_principal()
