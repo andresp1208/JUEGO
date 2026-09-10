@@ -25,7 +25,11 @@ def menu_principal():
         elif sobreescribir.lower() == "no":
              menu_principal()   
     elif menu == "2":
-        habitacion()
+        if len(inventario) == 0 :
+            print("no tienes una partida guardada, cada punto guardado se emite despues de obtener un objeto o codigo")
+            menu_principal()
+        else:
+            habitacion()    
     elif menu == "3":
         usar_pista()
     elif menu == "4":
@@ -168,8 +172,8 @@ def habitacion():
     print("3. mirar la pared")
     print("4. cadaver")
     print("5. Intentar abrir la puerta")
-    print("0")
     print("6. Ver inventario")
+    print("7. Menu principal")
     
 
     opcion = input("Elige una opción: ")
@@ -187,8 +191,8 @@ def habitacion():
     elif opcion == "6":
         print("Inventario:", inventario)
         habitacion()
-    elif opcion == "0":
-        final()
+    elif opcion == "Menu principal":
+        menu_principal()
     else:
         print("Opción inválida.")
         habitacion()
@@ -428,9 +432,6 @@ def puerta():
     else:
         print("No sabes el código.")
         
-    habitacion()
-    
-menu_principal()
     habitacion()
     
 menu_principal()
